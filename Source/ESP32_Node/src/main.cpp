@@ -27,10 +27,11 @@ void loop()
 {
   struct_message myData;
   myData.slaveID = slaveID;
-  printDataSht31(&myData);
-  printDataSmokeSensor(&myData);
+  printDataSht31(myData);
+  printDataSmokeSensor(myData);
   sendData(&myData, masterMAC);
 
   Serial.println("Dang gui data den Master...");
   delay(5000); 
 }
+

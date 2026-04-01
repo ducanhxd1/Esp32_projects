@@ -5,7 +5,7 @@
 #include "data.h"
 
 void Init_Sht31();
-void printDataSht31(struct_message *data);
+void printDataSht31(struct_message& data);
 
 
 #endif 

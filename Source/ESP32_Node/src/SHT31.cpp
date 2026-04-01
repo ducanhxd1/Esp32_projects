@@ -22,7 +22,7 @@ void Init_Sht31()
   }
 }
 
-void printDataSht31(struct_message *data)
+void printDataSht31(struct_message& data)
 {
   // ---- Read SHT31 Temperature & Humidity ----
   float temp = sht31.readTemperature();
@@ -35,14 +35,14 @@ void printDataSht31(struct_message *data)
     Serial.print("°C | Humidity: ");
     Serial.print(humidity, 1);
     Serial.println("%");
-    data->temp = temp;
-    data->humi = humidity;
+    data.temp = temp;
+    data.humi = humidity;
   }
   else
   {
     Serial.println("[ERROR] Failed to read SHT31");
-    data->temp = -99.0;
-    data->humi = -99.0;
+    data.temp = -99.0;
+    data.humi = -99.0;
   }
 }
 

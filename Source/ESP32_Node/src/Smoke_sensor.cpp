@@ -16,13 +16,14 @@ void initSmokeSensor()
 
     // ---- Initialize Smoke Sensor (UART) ----
     smokeSensor.begin();
+    smokeSensor.setAutoTx(0x80); 
     delay(500);
     uint8_t smokeStatus = smokeSensor.getSTATUS(); // 0 = no smoke, 1 = smoke detected
     Serial.print("[INFO] Smoke sensor status: 0x");
     Serial.println(smokeStatus, HEX);
 }
 
-void printDataSmokeSensor(struct_message *data)
+void printDataSmokeSensor(struct_message& data)
 {
     // Request smoke sensor data package
     uint8_t smokeBuffer[41] = {0};
@@ -39,11 +40,11 @@ void printDataSmokeSensor(struct_message *data)
         Serial.println(smokeValueB, DEC);
 
         // ================================================
-        data->smokeValueA = smokeValueA;
-        data->smokeValueB = smokeValueB;
+        data.humi = smokeValueA;
+        data.smokeValueB = smokeValueB;
     } else {
         Serial.println("FAILED !");
-        data->smokeValueA = -99;
-        data->smokeValueB = -99;
+        data.smokeValueA = -99;
+        data.smokeValueB = -99;
     }
 }

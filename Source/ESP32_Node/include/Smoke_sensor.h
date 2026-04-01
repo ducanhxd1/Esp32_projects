@@ -5,6 +5,6 @@
 #include "data.h"
 
 void initSmokeSensor();
-void printDataSmokeSensor(struct_message *data);
+void printDataSmokeSensor(struct_message& data);
 
 #endif  

@@ -8,6 +8,7 @@ typedef struct struct_message
     uint16_t smokeValueA;
     uint16_t smokeValueB;
     uint8_t slaveID;
+    unsigned long timestamp;
 } struct_message;
     
 #endif
